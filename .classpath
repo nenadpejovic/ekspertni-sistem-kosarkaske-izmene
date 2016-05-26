@@ -4,10 +4,10 @@
 	<classpathentry kind="src" path="src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="DROOLS/Drools"/>
-	<classpathentry kind="lib" path="C:/Users/Predrag-Nenad/Desktop/selenijum/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Predrag-Nenad/Desktop/selenijum/jsoup-1.9.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Predrag-Nenad/Desktop/selenijum/mysql-connector-java-5.0.8-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Predrag-Nenad/Desktop/selenijum/selenium-java-2.53.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Predrag-Nenad/Desktop/selenijum/selenium-server-standalone-2.53.0.jar"/>
+	<classpathentry kind="lib" path="biblioteke/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="biblioteke/jsoup-1.9.1.jar"/>
+	<classpathentry kind="lib" path="biblioteke/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="biblioteke/selenium-java-2.53.0.jar"/>
+	<classpathentry kind="lib" path="biblioteke/selenium-server-standalone-2.53.0.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>
