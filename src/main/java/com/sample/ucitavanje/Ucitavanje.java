@@ -37,7 +37,9 @@ public class Ucitavanje {
 			}
 			igrac = ws.ucitajDokument("http://www.basketball-reference.com/euro/players/"+igrac.getIme().toLowerCase()+"-"+igrac.getPrezime().toLowerCase()+"-1.html", igrac);
 		
+			
 			igrac = postaviPodatkeIzBaze(igrac);
+			
 		}
 		return ls;
 	}

@@ -53,9 +53,9 @@ public class DroolsTester {
 		lprotivnicki = new ArrayList<>();
 	}
 	
-	public void inicijalizujUtakmicu(){
-		u = new Utakmica();
-	}
+	//public void inicijalizujUtakmicu(){
+	//	u = new Utakmica();
+	//}
 
 	public Utakmica vratiUtakmicu(){
 		return u;

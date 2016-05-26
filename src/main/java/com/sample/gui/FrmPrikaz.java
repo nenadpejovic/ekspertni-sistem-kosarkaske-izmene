@@ -8,9 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.JLabel;
 
 import com.sample.domen.Utakmica;
+import com.sample.gui.model.IgraciTableModel;
 import com.sample.poslovnalogika.Kontroler;
 
 import java.awt.event.ActionListener;
@@ -19,7 +23,11 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.awt.Color;
 import java.awt.GridLayout;
+
 import javax.swing.JTextPane;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class FrmPrikaz extends JFrame {
 
@@ -41,6 +49,7 @@ public class FrmPrikaz extends JFrame {
 	private JLabel pCentar;
 	private Utakmica u;
 	private JTextPane tekst;
+	private JTable table;
 
 	
 
@@ -64,9 +73,10 @@ public class FrmPrikaz extends JFrame {
 	 * Create the frame.
 	 */
 	public FrmPrikaz() {
+		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 504, 339);
+		setBounds(100, 100, 598, 467);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -103,6 +113,10 @@ public class FrmPrikaz extends JFrame {
 					krilo.setText(u.getKrilo().getIme()+" "+u.getKrilo().getPrezime());
 					krilniCentar.setText(u.getKrilniCentar().getIme()+" "+u.getKrilniCentar().getPrezime());
 					centar.setText(u.getCentar().getIme()+" "+u.getCentar().getPrezime());
+					table.setModel(new IgraciTableModel(u));
+					
+					IgraciTableModel itm = (IgraciTableModel) table.getModel();
+					itm.fireTableDataChanged();
 					
 				} catch (IOException | SQLException e) {
 					// TODO Auto-generated catch block
@@ -111,12 +125,12 @@ public class FrmPrikaz extends JFrame {
 				Kontroler.getInstance().zatvoriPregledac();
 			}
 		});
-		btnPokreniProgram.setBounds(0, 129, 178, 23);
+		btnPokreniProgram.setBounds(59, 238, 178, 23);
 		contentPane.add(btnPokreniProgram);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Trenutna petorka", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(0, 0, 232, 118);
+		panel.setBounds(52, 109, 232, 118);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		startna = panel;
@@ -151,7 +165,7 @@ public class FrmPrikaz extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Predlo\u017Eena petroka", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(237, 0, 241, 118);
+		panel_1.setBounds(293, 109, 241, 118);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		predlozena = panel_1;
@@ -207,13 +221,13 @@ public class FrmPrikaz extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(300, 129, 178, 23);
+		btnNewButton.setBounds(356, 238, 178, 23);
 		contentPane.add(btnNewButton);
 		dugmeIzmeni = btnNewButton;
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new TitledBorder(null, "Obja\u0161njenje", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_2.setBounds(0, 158, 478, 132);
+		panel_2.setBounds(57, 272, 478, 156);
 		contentPane.add(panel_2);
 		objasnjenje = panel_2;
 		objasnjenje.setVisible(false);;
@@ -222,6 +236,14 @@ public class FrmPrikaz extends JFrame {
 		JTextPane textPane = new JTextPane();
 		panel_2.add(textPane);
 		tekst = textPane;
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 0, 572, 98);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setModel(new IgraciTableModel(null));
 		
 		startna.setVisible(false);
 		predlozena.setVisible(false);

@@ -95,7 +95,7 @@ public class Utakmica {
 		return rezervnoKrilo;
 	}
 
-	public void setRezervnoKrilo(Igrac rezervniKrilo) {
+	public void setRezervnoKrilo(Igrac rezervnoKrilo) {
 		this.rezervnoKrilo = rezervnoKrilo;
 	}
 
